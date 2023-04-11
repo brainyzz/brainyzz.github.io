@@ -1,0 +1,22 @@
+// базовые подключения
+@import "vars";
+@import "mixins";
+@import "fonts";
+@import "settings";
+@import "macro";
+@import 'swiper-css';
+@import 'btn';
+
+
+// подключения компонентов страницы
+@import "./components/header";
+@import "./components/footer";
+
+.page__body {
+  font-size: 16px;
+  line-height: 120%;
+  @include tablet {
+    font-size: 14px;
+  }
+}
+
