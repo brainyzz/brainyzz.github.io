@@ -81,15 +81,21 @@ const swiper = new swiper__WEBPACK_IMPORTED_MODULE_2__["default"]('.swiper', {
   // slidesPerView: 'auto',
   pagination: {
     el: '.swiper-pagination',
-    clickable: true,
-    renderBullet: function (index, className) {
-      return '<span class="' + className + '">' + menu[index] + '</span>';
-    }
+    clickable: true
+
+    // renderBullet: function (index, className) {
+    //   return '<span class="' + className + '">' + (menu[index]) + '</span>';
+    // },
   },
-  autoplay: {
-    delay: 4000,
-    disableOnInteraction: false
+
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
   }
+  // autoplay: {
+  //   delay: 4000,
+  //   disableOnInteraction: false,
+  // },
 });
 
 // import styles bundle

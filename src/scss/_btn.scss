@@ -10,4 +10,7 @@
   &:hover {
     background-color: var(--hover-color);
   }
+  @include small-tablet {
+    padding: 6px 12px;
+  }
 }

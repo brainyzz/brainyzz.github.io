@@ -60,14 +60,19 @@ const swiper = new Swiper('.swiper', {
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
-    renderBullet: function (index, className) {
-      return '<span class="' + className + '">' + (menu[index]) + '</span>';
-    },
+
+    // renderBullet: function (index, className) {
+    //   return '<span class="' + className + '">' + (menu[index]) + '</span>';
+    // },
   },
-  autoplay: {
-    delay: 4000,
-    disableOnInteraction: false,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
   },
+  // autoplay: {
+  //   delay: 4000,
+  //   disableOnInteraction: false,
+  // },
 });
 
 // import styles bundle
