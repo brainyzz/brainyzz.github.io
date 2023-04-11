@@ -6,8 +6,13 @@
   left: 0;
   z-index: 2;
   .container {
+  }
+  &__logo {
     @include tablet {
-      flex-wrap: wrap;
+      flex: 0 0 115px;
+    }
+    @include mc-tablet {
+      flex: 0 0 85px;
     }
   }
   &__menu {
@@ -22,6 +27,26 @@
       font-size: 18px;
       margin-top: 25px;
       flex: 0 0 auto;
+    }
+    @include tablet {
+      font-size: 16px;
+    }
+    @include small-tablet {
+      transform: translateX(100vh);
+      transition: .6s;
+      position: absolute;
+      width: 80vw;
+      height: 100vh;
+      top: 0;
+      margin-top: 0;
+      right: 0;
+      background-color: var(--second-color);
+    }
+    &.menu--active {
+      @include small-tablet {
+
+        transform: translateX(0);
+      }
     }
     .menu__item {
       &:not(:last-child) {
@@ -65,17 +90,31 @@
       margin-left: auto;
       margin-top: 16px;
       //margin-top: 16px;
-
     }
+    @include mc-tablet {
+      margin-top: 10px;
+    }
+    //@include tablet-medium {
+    //  margin-top: -49px;
+    //}
     .contact {
 
       &__btn {
-
+        @include mc-tablet {
+          display: none;
+        }
       }
       &__social {
         margin-left: 30px;
+        @include tablet {
+          margin-left: 20px;
+          margin-top: 3px;
+        }
         .social__tg {
           margin-right: 10px;
+          @include tablet {
+            margin-right: 6px;
+          }
         }
         .social__tg , .social__wa {
           &:hover {
@@ -83,9 +122,14 @@
               fill: var(--main-color);
             }
           }
-          svg, g {
+          svg {
             @include desktop {
-              width: 30px;
+              height: 30px;
+              max-width: 30px;
+            }
+            @include tablet {
+              height: 25px;
+              max-width: 25px;
             }
           }
         }
@@ -105,7 +149,13 @@
         }
         @include tablet {
           flex: 0 0 auto;
+          font-size: 16px;
+          margin-left: 0;
 
+        }
+        @include mc-tablet {
+          font-size: 14px;
+          margin-right: 0;
         }
         //text-decoration: underline;
         //text-decoration-style: dotted;
@@ -113,6 +163,36 @@
         //&:hover {
         //  color: #000;
         //}
+      }
+    }
+  }
+  &__burger {
+    @include burger;
+    display: none;
+    @include small-tablet {
+      display: block;
+      margin-top: 22px;
+      margin-left: 30px;
+    }
+    @include mc-tablet {
+      margin-top: 15px;
+    }
+    &.burger--active {
+      &::before {
+        top: 50%;
+        transform: rotate(45deg);
+        transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
+      }
+
+      &::after {
+        top: 50%;
+        transform: rotate(-45deg);
+        transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
+      }
+
+      .burger__line {
+        transform: scale(0);
+        transition: transform 0.3s ease-in-out;
       }
     }
   }
@@ -125,6 +205,10 @@
     height: 400px;
     display: flex;
     flex-direction: column;
+    @include small-tablet {
+      height: 400px;
+      margin-bottom: 200px;
+    }
   }
   &__item {
     background-repeat: no-repeat;
@@ -132,6 +216,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+
     .item {
       &__title {
         max-width: 900px;
@@ -140,6 +225,12 @@
         line-height: 120%;
         font-family: "SF-UI-bold";
         font-weight: 700;
+        @include small-tablet {
+          font-size: 48px;
+        }
+        @include mobile {
+          font-size: 36px;
+        }
       }
       &__link {
         color: #fff;
@@ -147,6 +238,9 @@
         margin-top: 40px;
         display: block;
         text-decoration: underline;
+        @include small-tablet {
+          font-size: 16px;
+        }
       }
     }
   }

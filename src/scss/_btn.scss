@@ -5,6 +5,8 @@
   color: #fff;
   transition: .4s;
   cursor: pointer;
+  white-space: nowrap;
+  height: fit-content;
   &:hover {
     background-color: var(--hover-color);
   }
