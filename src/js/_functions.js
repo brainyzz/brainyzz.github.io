@@ -50,9 +50,9 @@ import { burger } from './functions/burger';
 // });
 
 // Подключение свайпера
-let menu = ['Специальные технические условия\n' +
-'(СТУ)', 'Огнезащита', 'Расчет рисков', 'Мероприятия по обеспечинию\n' +
-'пожарной безопасности']
+// let menu = ['Специальные технические условия\n' +
+// '(СТУ)', 'Огнезащита', 'Расчет рисков', 'Мероприятия по обеспечинию\n' +
+// 'пожарной безопасности']
 import Swiper, { Navigation, Pagination,Autoplay } from 'swiper';
 Swiper.use([Navigation, Pagination, Autoplay]);
 const swiper = new Swiper('.swiper', {
@@ -103,5 +103,18 @@ const swiper = new Swiper('.swiper', {
 // const afterForm = () => {
 //   console.log('Произошла отправка, тут можно писать любые действия');
 // };
+
+const header = document.querySelector('header');
+let prevScrollPos = window.pageYOffset;
+
+window.addEventListener('scroll', function() {
+  const currentScrollPos = window.pageYOffset;
+  if (prevScrollPos > currentScrollPos) {
+    header.classList.remove('sticky');
+  } else {
+    header.classList.add('sticky');
+  }
+  prevScrollPos = currentScrollPos;
+});
 
 // validateForms('.form-1', rules1, afterForm);

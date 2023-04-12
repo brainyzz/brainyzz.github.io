@@ -74,7 +74,9 @@ console.log((0,_functions_mobile_check__WEBPACK_IMPORTED_MODULE_0__.mobileCheck)
 // });
 
 // Подключение свайпера
-let menu = ['Специальные технические условия\n' + '(СТУ)', 'Огнезащита', 'Расчет рисков', 'Мероприятия по обеспечинию\n' + 'пожарной безопасности'];
+// let menu = ['Специальные технические условия\n' +
+// '(СТУ)', 'Огнезащита', 'Расчет рисков', 'Мероприятия по обеспечинию\n' +
+// 'пожарной безопасности']
 
 swiper__WEBPACK_IMPORTED_MODULE_2__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_2__.Navigation, swiper__WEBPACK_IMPORTED_MODULE_2__.Pagination, swiper__WEBPACK_IMPORTED_MODULE_2__.Autoplay]);
 const swiper = new swiper__WEBPACK_IMPORTED_MODULE_2__["default"]('.swiper', {
@@ -126,6 +128,18 @@ const swiper = new swiper__WEBPACK_IMPORTED_MODULE_2__["default"]('.swiper', {
 // const afterForm = () => {
 //   console.log('Произошла отправка, тут можно писать любые действия');
 // };
+
+const header = document.querySelector('header');
+let prevScrollPos = window.pageYOffset;
+window.addEventListener('scroll', function () {
+  const currentScrollPos = window.pageYOffset;
+  if (prevScrollPos > currentScrollPos) {
+    header.classList.remove('sticky');
+  } else {
+    header.classList.add('sticky');
+  }
+  prevScrollPos = currentScrollPos;
+});
 
 // validateForms('.form-1', rules1, afterForm);
 

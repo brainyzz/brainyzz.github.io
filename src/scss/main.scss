@@ -11,6 +11,7 @@
 // подключения компонентов страницы
 @import "./components/header";
 @import "./components/footer";
+@import "./components/services";
 
 .page__body {
   font-size: 16px;
@@ -18,5 +19,8 @@
   @include tablet {
     font-size: 14px;
   }
+}
+section {
+  margin-bottom: 70px;
 }
 

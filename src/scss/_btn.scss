@@ -10,7 +10,25 @@
   &:hover {
     background-color: var(--hover-color);
   }
+  &.grey {
+    background-color: var(--second-color);
+  }
   @include small-tablet {
     padding: 6px 12px;
+  }
+}
+.btn--big {
+  padding: 14px 24px;
+  background-color: var(--main-color);
+  border: none;
+  color: #fff;
+  transition: .4s;
+  cursor: pointer;
+  white-space: nowrap;
+  height: fit-content;
+  font-size: 24px;
+  text-transform: uppercase;
+  &:hover {
+    background-color: var(--hover-color);
   }
 }
