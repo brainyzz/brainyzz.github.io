@@ -36,7 +36,7 @@
       transition: .6s;
       position: absolute;
       width: 50vw;
-      height: 100vh;
+      height: calc(100vh);
       top: 0;
       margin-top: 0;
       right: 0;
@@ -44,7 +44,7 @@
       flex-direction: column;
       align-items: flex-start;
       justify-content: flex-start;
-      padding: 60px 20px 40px;
+      padding: 60px 20px 60px;
       font-size: 18px;
     }
     &.menu--active {
@@ -87,6 +87,7 @@
         @include small-tablet {
           display: block;
           margin-top: auto;
+          margin-bottom: 40px;
         }
       }
     }
@@ -215,13 +216,26 @@
 .slider {
   width: 100%;
   height: 100vh;
+  @include small-tablet {
+    height: calc(100vh - 200px);
+  }
   .container {
     width: 100%;
     height: 400px;
     display: flex;
     flex-direction: column;
+    @include desktop {
+      padding: 0 150px;
+    }
+    @include tablet {
+
+    }
     @include small-tablet {
       height: 400px;
+      padding: 0 80px;
+    }
+    @include mobile {
+      padding: 0 var(--container-offset);
     }
   }
   &__item {
@@ -242,7 +256,7 @@
           font-size: 48px;
         }
         @include mobile {
-          font-size: 36px;
+          font-size: 26px;
         }
       }
       &__link {
@@ -279,12 +293,27 @@
     background-repeat: no-repeat;
     background-image: url("data:image/svg+xml,%3Csvg fill='none' height='36' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 24 24' width='36' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m10 16 5-4-5-4'/%3E%3C/svg%3E"); //.swiper-pagination {
     @include desktop {
-      bottom: 100px;
+      right: 30px;
+    }
+    @include tablet {
+      width: 40px;
+      height: 40px;
+    }
+    @include small-tablet {
+      width: 30px;
+      height: 30px;
+      right: 10px;
     }
   }
   .swiper-button-prev {
     transform: rotate(180deg);
     left: 60px;
+    @include desktop {
+      left: 30px;
+    }
+    @include small-tablet {
+      left: 10px;
+    }
   }
     //  position: absolute;
   //  bottom: 0;

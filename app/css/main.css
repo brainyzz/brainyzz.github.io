@@ -1128,7 +1128,7 @@ button.swiper-pagination-bullet {
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     justify-content: flex-start;
-    padding: 60px 20px 40px;
+    padding: 60px 20px 60px;
     font-size: 18px;
   }
 }
@@ -1178,6 +1178,7 @@ button.swiper-pagination-bullet {
   .header__menu .menu__item.btn {
     display: block;
     margin-top: auto;
+    margin-bottom: 40px;
   }
 }
 .header__contact {
@@ -1370,6 +1371,11 @@ button.swiper-pagination-bullet {
   width: 100%;
   height: 100vh;
 }
+@media (max-width: 1279px) {
+  .slider {
+    height: calc(100vh - 200px);
+  }
+}
 .slider .container {
   width: 100%;
   height: 400px;
@@ -1381,9 +1387,20 @@ button.swiper-pagination-bullet {
   -ms-flex-direction: column;
   flex-direction: column;
 }
+@media (max-width: 1920px) {
+  .slider .container {
+    padding: 0 150px;
+  }
+}
 @media (max-width: 1279px) {
   .slider .container {
     height: 400px;
+    padding: 0 80px;
+  }
+}
+@media (max-width: 767px) {
+  .slider .container {
+    padding: 0 var(--container-offset);
   }
 }
 .slider__item {
@@ -1411,7 +1428,7 @@ button.swiper-pagination-bullet {
 }
 @media (max-width: 767px) {
   .slider__item .item__title {
-    font-size: 36px;
+    font-size: 26px;
   }
 }
 .slider__item .item__link {
@@ -1450,7 +1467,20 @@ button.swiper-pagination-bullet {
 }
 @media (max-width: 1920px) {
   .slider .swiper-button-next, .slider .swiper-button-prev {
-    bottom: 100px;
+    right: 30px;
+  }
+}
+@media (max-width: 1440px) {
+  .slider .swiper-button-next, .slider .swiper-button-prev {
+    width: 40px;
+    height: 40px;
+  }
+}
+@media (max-width: 1279px) {
+  .slider .swiper-button-next, .slider .swiper-button-prev {
+    width: 30px;
+    height: 30px;
+    right: 10px;
   }
 }
 .slider .swiper-button-prev {
@@ -1458,6 +1488,16 @@ button.swiper-pagination-bullet {
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
   left: 60px;
+}
+@media (max-width: 1920px) {
+  .slider .swiper-button-prev {
+    left: 30px;
+  }
+}
+@media (max-width: 1279px) {
+  .slider .swiper-button-prev {
+    left: 10px;
+  }
 }
 
 @-webkit-keyframes hvr-wobble-horizontal {
