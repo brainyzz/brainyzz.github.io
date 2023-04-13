@@ -158,10 +158,25 @@ a {
   font-size: 48px;
   line-height: 120%;
 }
+@media (max-width: 1279px) {
+  .title {
+    font-size: 34px;
+  }
+}
+@media (max-width: 767px) {
+  .title {
+    font-size: 28px;
+  }
+}
 
 .subtitle {
   font-size: 24px;
   line-height: 120%;
+}
+@media (max-width: 1279px) {
+  .subtitle {
+    font-size: 20px;
+  }
 }
 
 .flex {
@@ -1055,6 +1070,7 @@ button.swiper-pagination-bullet {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  text-decoration: none;
 }
 .btn:hover {
   background-color: var(--hover-color);
@@ -1086,6 +1102,460 @@ button.swiper-pagination-bullet {
 }
 .btn--big:hover {
   background-color: var(--hover-color);
+}
+@media (max-width: 1279px) {
+  .btn--big {
+    padding: 10px 20px;
+    font-size: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .btn--big {
+    padding: 8px 14px;
+  }
+}
+
+/*! PhotoSwipe main CSS by Dmytro Semenov | photoswipe.com */
+.pswp {
+  --pswp-bg: #000;
+  --pswp-placeholder-bg: #222;
+  --pswp-root-z-index: 100000;
+  --pswp-preloader-color: rgba(79, 79, 79, 0.4);
+  --pswp-preloader-color-secondary: rgba(255, 255, 255, 0.9);
+  /* defined via js:
+  --pswp-transition-duration: 333ms; */
+  --pswp-icon-color: #fff;
+  --pswp-icon-color-secondary: #4f4f4f;
+  --pswp-icon-stroke-color: #4f4f4f;
+  --pswp-icon-stroke-width: 2px;
+  --pswp-error-text-color: var(--pswp-icon-color);
+}
+
+/*
+	Styles for basic PhotoSwipe (pswp) functionality (sliding area, open/close transitions)
+*/
+.pswp {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--pswp-root-z-index);
+  display: none;
+  -ms-touch-action: none;
+  touch-action: none;
+  outline: 0;
+  opacity: 0.003;
+  contain: layout style size;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* Prevents focus outline on the root element,
+  (it may be focused initially) */
+.pswp:focus {
+  outline: 0;
+}
+
+.pswp * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.pswp img {
+  max-width: none;
+}
+
+.pswp--open {
+  display: block;
+}
+
+.pswp,
+.pswp__bg {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: opacity;
+}
+
+.pswp__bg {
+  opacity: 0.005;
+  background: var(--pswp-bg);
+}
+
+.pswp,
+.pswp__scroll-wrap {
+  overflow: hidden;
+}
+
+.pswp__scroll-wrap,
+.pswp__bg,
+.pswp__container,
+.pswp__item,
+.pswp__content,
+.pswp__img,
+.pswp__zoom-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.pswp__img,
+.pswp__zoom-wrap {
+  width: auto;
+  height: auto;
+}
+
+.pswp--click-to-zoom.pswp--zoom-allowed .pswp__img {
+  cursor: -webkit-zoom-in;
+  cursor: zoom-in;
+}
+
+.pswp--click-to-zoom.pswp--zoomed-in .pswp__img {
+  cursor: move;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.pswp--click-to-zoom.pswp--zoomed-in .pswp__img:active {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+/* :active to override grabbing cursor */
+.pswp--no-mouse-drag.pswp--zoomed-in .pswp__img,
+.pswp--no-mouse-drag.pswp--zoomed-in .pswp__img:active,
+.pswp__img {
+  cursor: -webkit-zoom-out;
+  cursor: zoom-out;
+}
+
+/* Prevent selection and tap highlights */
+.pswp__container,
+.pswp__img,
+.pswp__button,
+.pswp__counter {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.pswp__item {
+  /* z-index for fade transition */
+  z-index: 1;
+  overflow: hidden;
+}
+
+.pswp__hidden {
+  display: none !important;
+}
+
+/* Allow to click through pswp__content element, but not its children */
+.pswp__content {
+  pointer-events: none;
+}
+
+.pswp__content > * {
+  pointer-events: auto;
+}
+
+/*
+
+  PhotoSwipe UI
+
+*/
+/*
+	Error message appears when image is not loaded
+	(JS option errorMsg controls markup)
+*/
+.pswp__error-msg-container {
+  display: -ms-grid;
+  display: grid;
+}
+
+.pswp__error-msg {
+  margin: auto;
+  font-size: 1em;
+  line-height: 1;
+  color: var(--pswp-error-text-color);
+}
+
+/*
+class pswp__hide-on-close is applied to elements that
+should hide (for example fade out) when PhotoSwipe is closed
+and show (for example fade in) when PhotoSwipe is opened
+ */
+.pswp .pswp__hide-on-close {
+  opacity: 0.005;
+  will-change: opacity;
+  -webkit-transition: opacity var(--pswp-transition-duration) cubic-bezier(0.4, 0, 0.22, 1);
+  -o-transition: opacity var(--pswp-transition-duration) cubic-bezier(0.4, 0, 0.22, 1);
+  transition: opacity var(--pswp-transition-duration) cubic-bezier(0.4, 0, 0.22, 1);
+  z-index: 10; /* always overlap slide content */
+  pointer-events: none; /* hidden elements should not be clickable */
+}
+
+/* class pswp--ui-visible is added when opening or closing transition starts */
+.pswp--ui-visible .pswp__hide-on-close {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* <button> styles, including css reset */
+.pswp__button {
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 60px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  opacity: 0.85;
+  -webkit-appearance: none;
+  -webkit-touch-callout: none;
+}
+
+.pswp__button:hover,
+.pswp__button:active,
+.pswp__button:focus {
+  -webkit-transition: none;
+  -o-transition: none;
+  transition: none;
+  padding: 0;
+  background: none;
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  opacity: 1;
+}
+
+.pswp__button:disabled {
+  opacity: 0.3;
+  cursor: auto;
+}
+
+.pswp__icn {
+  fill: var(--pswp-icon-color);
+  color: var(--pswp-icon-color-secondary);
+}
+
+.pswp__icn {
+  position: absolute;
+  top: 14px;
+  left: 9px;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.pswp__icn-shadow {
+  stroke: var(--pswp-icon-stroke-color);
+  stroke-width: var(--pswp-icon-stroke-width);
+  fill: none;
+}
+
+.pswp__icn:focus {
+  outline: 0;
+}
+
+/*
+	div element that matches size of large image,
+	large image loads on top of it,
+	used when msrc is not provided
+*/
+div.pswp__img--placeholder,
+.pswp__img--with-bg {
+  background: var(--pswp-placeholder-bg);
+}
+
+.pswp__top-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  z-index: 10;
+  /* allow events to pass through top bar itself */
+  pointer-events: none !important;
+}
+
+.pswp__top-bar > * {
+  pointer-events: auto;
+  /* this makes transition significantly more smooth,
+     even though inner elements are not animated */
+  will-change: opacity;
+}
+
+/*
+
+  Close button
+
+*/
+.pswp__button--close {
+  margin-right: 6px;
+}
+
+/*
+
+  Arrow buttons
+
+*/
+.pswp__button--arrow {
+  position: absolute;
+  top: 0;
+  width: 75px;
+  height: 100px;
+  top: 50%;
+  margin-top: -50px;
+}
+
+.pswp__button--arrow:disabled {
+  display: none;
+  cursor: default;
+}
+
+.pswp__button--arrow .pswp__icn {
+  top: 50%;
+  margin-top: -30px;
+  width: 60px;
+  height: 60px;
+  background: none;
+  border-radius: 0;
+}
+
+.pswp--one-slide .pswp__button--arrow {
+  display: none;
+}
+
+/* hide arrows on touch screens */
+.pswp--touch .pswp__button--arrow {
+  visibility: hidden;
+}
+
+/* show arrows only after mouse was used */
+.pswp--has_mouse .pswp__button--arrow {
+  visibility: visible;
+}
+
+.pswp__button--arrow--prev {
+  right: auto;
+  left: 0px;
+}
+
+.pswp__button--arrow--next {
+  right: 0px;
+}
+
+.pswp__button--arrow--next .pswp__icn {
+  left: auto;
+  right: 14px;
+  /* flip horizontally */
+  -webkit-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+
+/*
+
+  Zoom button
+
+*/
+.pswp__button--zoom {
+  display: none;
+}
+
+.pswp--zoom-allowed .pswp__button--zoom {
+  display: block;
+}
+
+/* "+" => "-" */
+.pswp--zoomed-in .pswp__zoom-icn-bar-v {
+  display: none;
+}
+
+/*
+
+  Loading indicator
+
+*/
+.pswp__preloader {
+  position: relative;
+  overflow: hidden;
+  width: 50px;
+  height: 60px;
+  margin-right: auto;
+}
+
+.pswp__preloader .pswp__icn {
+  opacity: 0;
+  -webkit-transition: opacity 0.2s linear;
+  -o-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+  -webkit-animation: pswp-clockwise 600ms linear infinite;
+  animation: pswp-clockwise 600ms linear infinite;
+}
+
+.pswp__preloader--active .pswp__icn {
+  opacity: 0.85;
+}
+
+@-webkit-keyframes pswp-clockwise {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pswp-clockwise {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+/*
+
+  "1 of 10" counter
+
+*/
+.pswp__counter {
+  height: 30px;
+  margin-top: 15px;
+  -webkit-margin-start: 20px;
+  margin-inline-start: 20px;
+  font-size: 14px;
+  line-height: 30px;
+  color: var(--pswp-icon-color);
+  text-shadow: 1px 1px 3px var(--pswp-icon-color-secondary);
+  opacity: 0.85;
+}
+
+.pswp--one-slide .pswp__counter {
+  display: none;
 }
 
 .header {
@@ -1618,6 +2088,11 @@ button.swiper-pagination-bullet {
 .services__title {
   text-align: center;
 }
+@media (max-width: 1279px) {
+  .services__title {
+    margin: 0 0 10px 0;
+  }
+}
 .services .container {
   display: -ms-grid;
   display: grid;
@@ -1631,6 +2106,18 @@ button.swiper-pagination-bullet {
   justify-content: space-between;
   row-gap: 70px;
 }
+@media (max-width: 1279px) {
+  .services .container {
+    -ms-grid-columns: (1fr)[2];
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 767px) {
+  .services .container {
+    -ms-grid-columns: (1fr)[1];
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 .services__item {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1639,20 +2126,66 @@ button.swiper-pagination-bullet {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+  height: 582px;
 }
 .services__item:hover svg path {
   fill: var(--main-color);
 }
 .services__item .item__title {
   text-align: center;
-  height: 60px;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 60px;
+  flex: 0 0 60px;
   margin: 5px 0 10px 0;
 }
+@media (max-width: 1279px) {
+  .services__item .item__title {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 40px;
+    flex: 0 0 40px;
+  }
+}
 .services__item .item__link {
-  margin: 0 auto;
+  margin: auto auto 0 auto;
 }
 .services__item .item__list {
-  height: 180px;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 210px;
+  flex: 0 0 210px;
+  padding-left: 30px;
+  font-size: 18px;
+}
+@media (max-width: 1440px) {
+  .services__item .item__list {
+    margin: 0 auto;
+    width: 400px;
+    font-size: 16px;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 1279px) {
+  .services__item .item__list {
+    width: 80%;
+    font-size: 14px;
+  }
+}
+.services__item .item__list .list__item {
+  margin-bottom: 7px;
+  position: relative;
+}
+.services__item .item__list .list__item:before {
+  content: "";
+  width: 10px;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: -20px;
+  background-color: var(--second-color);
 }
 .services__item .item__img {
   position: relative;
@@ -1674,9 +2207,275 @@ button.swiper-pagination-bullet {
   margin: 0 auto;
 }
 
+.about__title {
+  text-align: center;
+}
+.about .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.about__qualification {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 70%;
+  flex: 0 0 70%;
+  overflow: hidden;
+}
+.about__qualification .qualification__cert {
+  width: 100%;
+  height: 100%;
+  margin-top: 50px;
+}
+.about__qualification .qualification__cert .slider__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.about__qualification .qualification__cert .slider__item a {
+  max-width: 80%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  -webkit-filter: grayscale(0.5);
+  filter: grayscale(0.5);
+}
+.about__qualification .qualification__cert .slider__item a:hover {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}
+.about__qualification .qualification__cert .slider__item.swiper-slide-next a {
+  max-width: 100%;
+  margin: 0;
+}
+.about__qualification .swiper-button-next:after, .about__qualification .swiper-button-prev:after {
+  content: none;
+}
+.about__qualification .swiper-button-next, .about__qualification .swiper-button-prev {
+  fill: #9d2323;
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml,%3Csvg fill='brown' height='36' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 24 24' width='36' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m10 16 5-4-5-4'/%3E%3C/svg%3E");
+}
+.about__qualification .swiper-button-prev {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.about__slider {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  position: relative;
+}
+.about .slider__portfolio {
+  height: 700px;
+  overflow: hidden;
+}
+.about .slider__portfolio .slider__item {
+  position: relative;
+  -webkit-filter: grayscale(0.5);
+  filter: grayscale(0.5);
+}
+.about .slider__portfolio .slider__item:hover {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}
+.about .slider__portfolio .slider__item .item__info {
+  position: absolute;
+  padding: 20px;
+}
+.about .slider__portfolio .slider__item .item__info .item__title {
+  font-size: 22px;
+}
+.about .slider__portfolio .slider__item .item__info .item__text {
+  color: #fff;
+}
+.about .slider__portfolio .slider__item .item__info .item__link {
+  text-decoration: none;
+  font-size: 16px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.about .slider__portfolio .swiper-pagination-vertical.swiper-pagination-bullets, .about .slider__portfolio .swiper-vertical > .swiper-pagination-bullets {
+  top: 90%;
+}
+.about .slider__portfolio .swiper-pagination-bullet {
+  height: 15px;
+  width: 15px;
+  background-color: var(--second-color);
+  opacity: 0.7;
+}
+.about .slider__portfolio .swiper-pagination-bullet-active {
+  background-color: var(--main-color);
+  opacity: 1;
+}
+
+.map__title {
+  text-align: center;
+}
+
+.form__title {
+  text-align: center;
+}
+.form__wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.form__wrapper label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-bottom: 35px;
+}
+.form__wrapper label span {
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+.form__wrapper label span span {
+  color: var(--main-color);
+}
+.form__wrapper label .form__input {
+  height: 40px;
+  padding-left: 10px;
+}
+.form__wrapper label .form__text {
+  height: 120px;
+  padding: 5px 10px;
+}
+.form__wrapper .form__submit {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.clients__title, .reviews__title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.clients .swiper-pagination-vertical.swiper-pagination-bullets, .clients .swiper-vertical > .swiper-pagination-bullets, .reviews .swiper-pagination-vertical.swiper-pagination-bullets, .reviews .swiper-vertical > .swiper-pagination-bullets {
+  top: 90%;
+}
+.clients .swiper-pagination-bullet, .reviews .swiper-pagination-bullet {
+  height: 15px;
+  width: 15px;
+  background-color: var(--second-color);
+  opacity: 0.7;
+}
+.clients .swiper-pagination-bullet-active, .reviews .swiper-pagination-bullet-active {
+  background-color: var(--main-color);
+  opacity: 1;
+}
+.clients .swiper-button-next:after, .clients .swiper-button-prev:after, .reviews .swiper-button-next:after, .reviews .swiper-button-prev:after {
+  content: none;
+}
+.clients .swiper-button-next, .clients .swiper-button-prev, .reviews .swiper-button-next, .reviews .swiper-button-prev {
+  fill: #9d2323;
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml,%3Csvg fill='brown' height='36' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 24 24' width='36' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m10 16 5-4-5-4'/%3E%3C/svg%3E");
+}
+.clients .swiper-button-prev, .reviews .swiper-button-prev {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.reviews__item {
+  border: 1px solid var(--second-color);
+  padding: 28px 15px;
+  border-radius: 3px;
+}
+.reviews__item .item__img {
+  max-width: 50%;
+  display: block;
+  margin: 0 auto;
+}
+.reviews__item .item__title {
+  color: #000;
+  text-align: center;
+  font-size: 24px;
+}
+.reviews__item .item__text {
+  color: #000;
+}
+.reviews__item .item__btn {
+  display: block;
+  margin-top: 20px;
+}
+
+.contact {
+  position: relative;
+}
+.contact__wrapper {
+  width: 500px;
+  position: absolute;
+  left: 10%;
+  top: 10%;
+  background-color: var(--main-color);
+  padding: 40px 25px;
+  border-radius: 3px;
+  color: #fff;
+}
+.contact__title {
+  font-size: 24px;
+}
+.contact__tel, .contact__email, .contact address {
+  color: #fff;
+  padding-left: 25px;
+  display: block;
+  margin-top: 19px;
+  font-size: 18px;
+  position: relative;
+}
+.contact__tel:before, .contact__email:before, .contact address:before {
+  content: "";
+  left: 0;
+  top: 3px;
+  width: 18px;
+  height: 18px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+.contact__tel:before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48' fill='%23fff' viewBox='0 96 960 960' width='48'%3E%3Cpath d='M795 936q-122 0-242.5-60T336 720q-96-96-156-216.5T120 261q0-19.286 12.857-32.143T165 216h140q13.611 0 24.306 9.5Q340 235 343 251l27 126q2 14-.5 25.5T359 422L259 523q56 93 125.5 162T542 802l95-98q10-11 23-15.5t26-1.5l119 26q15.312 3.375 25.156 15.188Q840 740 840 756v135q0 19.286-12.857 32.143T795 936ZM229 468l81-82-23-110H180q0 39 12 85.5T229 468Zm369 363q41 19 89 31t93 14V769l-103-21-79 83ZM229 468Zm369 363Z'/%3E%3C/svg%3E");
+}
+.contact__email:before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48' fill='white' viewBox='0 96 960 960' width='48'%3E%3Cpath d='M480 976q-83 0-156-31.5T197 859q-54-54-85.5-127T80 576q0-83 31.5-156T197 293q54-54 127-85.5T480 176q83 0 156 31.5T763 293q54 54 85.5 127T880 576v53q0 56-39.5 94.5T744 762q-36 0-68-17.5T627 695q-26 34-65 50.5T480 762q-78 0-132.5-54T293 576q0-78 54.5-133T480 388q78 0 132.5 55T667 576v53q0 31 22.5 52t54.5 21q31 0 53.5-21t22.5-52v-53q0-142-99-241t-241-99q-142 0-241 99t-99 241q0 142 99 241t241 99h214v60H480Zm0-274q53 0 90-36.5t37-89.5q0-54-37-91t-90-37q-53 0-90 37t-37 91q0 53 37 89.5t90 36.5Z'/%3E%3C/svg%3E");
+}
+.contact address:before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48' fill='%23fff' viewBox='0 96 960 960' width='48'%3E%3Cpath d='M220 876h150V626h220v250h150V486L480 291 220 486v390Zm-60 60V456l320-240 320 240v480H530V686H430v250H160Zm320-353Z'/%3E%3C/svg%3E");
+}
+
 .page__body {
   font-size: 16px;
   line-height: 120%;
+  font-family: "SF-UI";
 }
 @media (max-width: 1440px) {
   .page__body {
