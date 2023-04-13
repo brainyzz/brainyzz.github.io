@@ -7,6 +7,7 @@
   cursor: pointer;
   white-space: nowrap;
   height: fit-content;
+  text-decoration: none;
   &:hover {
     background-color: var(--hover-color);
   }
@@ -30,5 +31,12 @@
   text-transform: uppercase;
   &:hover {
     background-color: var(--hover-color);
+  }
+  @include small-tablet {
+    padding: 10px 20px;
+    font-size: 20px;
+  }
+  @include mobile {
+    padding: 8px 14px;
   }
 }

@@ -49,30 +49,89 @@ import { burger } from './functions/burger';
 //   placement: 'right'
 // });
 
+import PhotoSwipeLightbox from "photoswipe/lightbox";
+
+
+const cert = new PhotoSwipeLightbox({
+  gallery: ".swiper-wrapper",
+  children: "a",
+  pswpModule: () => import("photoswipe")
+});
+
+cert.init();
+
 // Подключение свайпера
 // let menu = ['Специальные технические условия\n' +
 // '(СТУ)', 'Огнезащита', 'Расчет рисков', 'Мероприятия по обеспечинию\n' +
 // 'пожарной безопасности']
+
 import Swiper, { Navigation, Pagination,Autoplay } from 'swiper';
 Swiper.use([Navigation, Pagination, Autoplay]);
-const swiper = new Swiper('.swiper', {
+const swiper = new Swiper('.slider', {
   // slidesPerView: 'auto',
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
-
-    // renderBullet: function (index, className) {
-    //   return '<span class="' + className + '">' + (menu[index]) + '</span>';
-    // },
   },
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
-  // autoplay: {
-  //   delay: 4000,
-  //   disableOnInteraction: false,
+});
+const swiperAbout = new Swiper('.cert__slider', {
+  slidesPerView: 3,
+  spaceBetween: 30,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
+const swiperPortfolio = new Swiper('.slider__portfolio', {
+  direction: "vertical",
+  slidesPerView: 2,
+  spaceBetween: 10,
+  pagination: {
+    el: '.swiper-pagination',
+    type: 'bullets',
+    clickable: true
+  },
+  // navigation: {
+  //   nextEl: '.swiper-button-next',
+  //   prevEl: '.swiper-button-prev',
   // },
+});
+const swiperClients = new Swiper('.clients__slider', {
+  slidesPerView: 10.5,
+  spaceBetween: 50,
+  loop: true,
+  autoplay: {
+    delay: 1000,
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  // navigation: {
+  //   nextEl: '.swiper-button-next',
+  //   prevEl: '.swiper-button-prev',
+  // },
+});
+const swiperReviews = new Swiper('.reviews__slider', {
+  slidesPerView: 5.8,
+  spaceBetween: 50,
+  loop: true,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
 });
 
 // import styles bundle

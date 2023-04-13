@@ -22,6 +22,9 @@
   }
   &__title {
     text-align: center;
+    @include small-tablet() {
+      margin: 0 0 10px 0;
+    }
   }
   .container {
     display: grid;
@@ -29,10 +32,17 @@
     align-items: center;
     justify-content: space-between;
     row-gap: 70px;
+    @include small-tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include mobile {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
   &__item {
     display: flex;
     flex-direction: column;
+    height: 582px;
     &:hover {
       svg path {
         fill: var(--main-color);
@@ -42,14 +52,45 @@
     .item {
       &__title {
         text-align: center;
-        height: 60px;
+        flex: 0 0 60px;
         margin: 5px 0 10px 0;
+        @include small-tablet {
+          flex: 0 0 40px;
+        }
       }
       &__link {
-        margin: 0 auto;
+        margin: auto auto 0 auto;
       }
       &__list {
-        height: 180px;
+        flex:0 0 210px;
+        padding-left: 30px;
+        font-size: 18px;
+        @include tablet {
+          margin: 0 auto;
+          width: 400px;
+          font-size: 16px;
+          flex-wrap: wrap;
+        }
+        @include small-tablet {
+          width: 80%;
+          font-size: 14px;
+        }
+        .list__item {
+          margin-bottom: 7px;
+          position: relative;
+          &:before {
+            content: '';
+            width: 10px;
+            height: 2px;
+            position: absolute;
+            bottom: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            left: -20px;
+            background-color: var(--second-color);
+          }
+        }
+
       }
       &__img {
         position: relative;
