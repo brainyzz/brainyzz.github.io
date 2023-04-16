@@ -101,8 +101,10 @@ const swiper = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider', {
   }
 });
 const swiperAbout = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.cert__slider', {
-  slidesPerView: 3,
-  spaceBetween: 30,
+  slidesPerView: 1.8,
+  centeredSlides: true,
+  spaceBetween: 20,
+  loop: true,
   pagination: {
     el: '.swiper-pagination',
     clickable: true
@@ -110,16 +112,45 @@ const swiperAbout = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.cert__s
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev'
+  },
+  breakpoints: {
+    // // when window width is >= 320px
+    768: {
+      slidesPerView: 3,
+      centeredSlides: false,
+      spaceBetween: 30
+    }
   }
 });
 const swiperPortfolio = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.slider__portfolio', {
-  direction: "vertical",
-  slidesPerView: 2,
-  spaceBetween: 10,
   pagination: {
     el: '.swiper-pagination',
     type: 'bullets',
-    clickable: true
+    clickable: true,
+    slidesPerView: 1.3,
+    spaceBetween: 30
+  },
+  breakpoints: {
+    // // when window width is >= 320px
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    },
+    1023: {
+      slidesPerView: 2.5,
+      spaceBetween: 20
+    },
+    1200: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      direction: 'horizontal'
+    },
+    // when window width is >= 640px
+    1440: {
+      direction: "vertical",
+      slidesPerView: 2,
+      spaceBetween: 10
+    }
   }
   // navigation: {
   //   nextEl: '.swiper-button-next',
@@ -128,11 +159,22 @@ const swiperPortfolio = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.sli
 });
 
 const swiperClients = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.clients__slider', {
-  slidesPerView: 10.5,
+  slidesPerView: 3.5,
   spaceBetween: 50,
   loop: true,
   autoplay: {
     delay: 1000
+  },
+  breakpoints: {
+    // // when window width is >= 320px
+    1023: {
+      slidesPerView: 6,
+      spaceBetween: 20
+    },
+    // when window width is >= 640px
+    1440: {
+      slidesPerView: 10.5
+    }
   },
   pagination: {
     el: '.swiper-pagination',
@@ -145,8 +187,9 @@ const swiperClients = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.clien
 });
 
 const swiperReviews = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.reviews__slider', {
-  slidesPerView: 5.8,
+  slidesPerView: 1.4,
   spaceBetween: 50,
+  centeredSlides: true,
   loop: true,
   pagination: {
     el: '.swiper-pagination',
@@ -155,6 +198,14 @@ const swiperReviews = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.revie
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev'
+  },
+  breakpoints: {
+    // // when window width is >= 320px
+    1023: {
+      slidesPerView: 5.8,
+      spaceBetween: 20,
+      centeredSlides: false
+    }
   }
 });
 
@@ -191,7 +242,7 @@ const header = document.querySelector('header');
 let prevScrollPos = window.pageYOffset;
 window.addEventListener('scroll', function () {
   const currentScrollPos = window.pageYOffset;
-  if (prevScrollPos > currentScrollPos) {
+  if (prevScrollPos < 10) {
     header.classList.remove('sticky');
   } else {
     header.classList.add('sticky');
