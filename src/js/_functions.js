@@ -185,7 +185,11 @@ const swiperReviews = new Swiper('.reviews__slider', {
     },
   }
 });
+import Inputmask from "inputmask";
+let selector = document.querySelector('.input-tel')
 
+let im = new Inputmask("+7(999)-999-99-99");
+im.mask(selector);
 // import styles bundle
 
 // Подключение анимаций по скроллу
@@ -220,7 +224,7 @@ let prevScrollPos = window.pageYOffset;
 
 window.addEventListener('scroll', function() {
   const currentScrollPos = window.pageYOffset;
-  if (prevScrollPos < 10) {
+  if (prevScrollPos < 40) {
     header.classList.remove('sticky');
   } else {
     header.classList.add('sticky');
