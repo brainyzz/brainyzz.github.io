@@ -1,4 +1,7 @@
 .services {
+  @include small-tablet {
+    display: none;
+  }
   position: relative;
   &:before, &:after {
     content: '';
@@ -27,22 +30,11 @@
     }
   }
   .container {
-    display: grid;
-    grid-template-columns: repeat(3, 400px);
-    align-items: center;
-    justify-content: space-between;
-    row-gap: 70px;
-    @include small-tablet {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    @include mobile {
-      grid-template-columns: repeat(1, 1fr);
-    }
+
   }
   &__item {
     display: flex;
-    flex-direction: column;
-    height: 582px;
+    margin-bottom: 40px;
     &:hover {
       svg path {
         fill: var(--main-color);
@@ -51,19 +43,20 @@
 
     .item {
       &__title {
-        text-align: center;
-        flex: 0 0 60px;
-        margin: 5px 0 10px 0;
+        flex: 0 0 100%;
+        margin: 5px 0 0 0;
         @include small-tablet {
           flex: 0 0 40px;
         }
       }
       &__link {
-        margin: auto auto 0 auto;
+        position: absolute;
+        bottom: 20px;
       }
       &__list {
-        flex:0 0 210px;
-        padding-left: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        flex: 0 0 80%;
         font-size: 18px;
         @include tablet {
           margin: 0 auto;
@@ -76,19 +69,22 @@
           font-size: 14px;
         }
         .list__item {
-          margin-bottom: 7px;
           position: relative;
-          &:before {
-            content: '';
-            width: 10px;
-            height: 2px;
-            position: absolute;
-            bottom: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            left: -20px;
-            background-color: var(--second-color);
+          &:not(:last-child) {
+            margin-right: 20px;
+            border-radius: 2px;
           }
+          //&:before {
+          //  content: '';
+          //  width: 10px;
+          //  height: 2px;
+          //  position: absolute;
+          //  bottom: 0;
+          //  top: 50%;
+          //  transform: translateY(-50%);
+          //  left: -20px;
+          //  background-color: var(--second-color);
+          //}
         }
 
       }
@@ -97,11 +93,15 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex: 0 0 20%;
+        margin-right: 40px;
         .item__icon {
           position: absolute;
           left: 0;
           right: 0;
-          width: 60%;
+          width: 200px;
+          height: 200px;
+          bottom: 20px;
           margin: 0 auto;
         }
       }

@@ -1,0 +1,48 @@
+.footer {
+  background-color: var(--second-color);
+  .container {
+    display: flex;
+  }
+  .contact {
+    position: relative;
+    &__wrapper {
+      left: 10%;
+      top: 10%;
+
+      padding: 40px 25px;
+      border-radius: 3px;
+      color: #fff;
+    }
+    &__title {
+      font-size: 24px;
+    }
+    &__tel, &__email, &__address {
+      color: #fff;
+      padding-left: 25px;
+      display: block;
+      margin-top: 19px;
+      font-size: 18px;
+      position: relative;
+      font-style: normal;
+      &:before {
+        content: '';
+        left: 0;
+        top: 3px;
+        width: 18px;
+        height: 18px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: absolute;
+      }
+    }
+    &__tel:before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48' fill='%23fff' viewBox='0 96 960 960' width='48'%3E%3Cpath d='M795 936q-122 0-242.5-60T336 720q-96-96-156-216.5T120 261q0-19.286 12.857-32.143T165 216h140q13.611 0 24.306 9.5Q340 235 343 251l27 126q2 14-.5 25.5T359 422L259 523q56 93 125.5 162T542 802l95-98q10-11 23-15.5t26-1.5l119 26q15.312 3.375 25.156 15.188Q840 740 840 756v135q0 19.286-12.857 32.143T795 936ZM229 468l81-82-23-110H180q0 39 12 85.5T229 468Zm369 363q41 19 89 31t93 14V769l-103-21-79 83ZM229 468Zm369 363Z'/%3E%3C/svg%3E");
+    }
+    &__email:before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48' fill='white' viewBox='0 96 960 960' width='48'%3E%3Cpath d='M480 976q-83 0-156-31.5T197 859q-54-54-85.5-127T80 576q0-83 31.5-156T197 293q54-54 127-85.5T480 176q83 0 156 31.5T763 293q54 54 85.5 127T880 576v53q0 56-39.5 94.5T744 762q-36 0-68-17.5T627 695q-26 34-65 50.5T480 762q-78 0-132.5-54T293 576q0-78 54.5-133T480 388q78 0 132.5 55T667 576v53q0 31 22.5 52t54.5 21q31 0 53.5-21t22.5-52v-53q0-142-99-241t-241-99q-142 0-241 99t-99 241q0 142 99 241t241 99h214v60H480Zm0-274q53 0 90-36.5t37-89.5q0-54-37-91t-90-37q-53 0-90 37t-37 91q0 53 37 89.5t90 36.5Z'/%3E%3C/svg%3E");
+    }
+    &__address:before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='48' fill='%23fff' viewBox='0 96 960 960' width='48'%3E%3Cpath d='M220 876h150V626h220v250h150V486L480 291 220 486v390Zm-60 60V456l320-240 320 240v480H530V686H430v250H160Zm320-353Z'/%3E%3C/svg%3E");
+    }
+  }
+}

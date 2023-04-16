@@ -79,8 +79,10 @@ const swiper = new Swiper('.slider', {
   },
 });
 const swiperAbout = new Swiper('.cert__slider', {
-  slidesPerView: 3,
-  spaceBetween: 30,
+  slidesPerView: 1.8,
+  centeredSlides: true,
+  spaceBetween: 20,
+  loop: true,
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
@@ -89,27 +91,67 @@ const swiperAbout = new Swiper('.cert__slider', {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
+  breakpoints: {
+    // // when window width is >= 320px
+    768: {
+      slidesPerView: 3,
+      centeredSlides: false,
+      spaceBetween: 30,
+    },
+  }
 });
 const swiperPortfolio = new Swiper('.slider__portfolio', {
-  direction: "vertical",
-  slidesPerView: 2,
-  spaceBetween: 10,
   pagination: {
     el: '.swiper-pagination',
     type: 'bullets',
-    clickable: true
+    clickable: true,
+    slidesPerView: 1.3,
+    spaceBetween: 30,
   },
+  breakpoints: {
+    // // when window width is >= 320px
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    1023: {
+      slidesPerView: 2.5,
+      spaceBetween: 20,
+    },
+    1200: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      direction: 'horizontal',
+    },
+    // when window width is >= 640px
+    1440: {
+      direction: "vertical",
+      slidesPerView: 2,
+      spaceBetween: 10,
+    }
+  }
   // navigation: {
   //   nextEl: '.swiper-button-next',
   //   prevEl: '.swiper-button-prev',
   // },
 });
 const swiperClients = new Swiper('.clients__slider', {
-  slidesPerView: 10.5,
+  slidesPerView: 3.5,
   spaceBetween: 50,
   loop: true,
   autoplay: {
     delay: 1000,
+  },
+  breakpoints: {
+    // // when window width is >= 320px
+    1023: {
+      slidesPerView: 6,
+      spaceBetween: 20,
+    },
+    // when window width is >= 640px
+    1440: {
+      slidesPerView: 10.5,
+    }
   },
   pagination: {
     el: '.swiper-pagination',
@@ -121,8 +163,9 @@ const swiperClients = new Swiper('.clients__slider', {
   // },
 });
 const swiperReviews = new Swiper('.reviews__slider', {
-  slidesPerView: 5.8,
+  slidesPerView: 1.4,
   spaceBetween: 50,
+  centeredSlides: true,
   loop: true,
   pagination: {
     el: '.swiper-pagination',
@@ -132,6 +175,15 @@ const swiperReviews = new Swiper('.reviews__slider', {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
+  breakpoints: {
+    // // when window width is >= 320px
+    1023: {
+      slidesPerView: 5.8,
+      spaceBetween: 20,
+      centeredSlides: false,
+
+    },
+  }
 });
 
 // import styles bundle
@@ -168,7 +220,7 @@ let prevScrollPos = window.pageYOffset;
 
 window.addEventListener('scroll', function() {
   const currentScrollPos = window.pageYOffset;
-  if (prevScrollPos > currentScrollPos) {
+  if (prevScrollPos < 10) {
     header.classList.remove('sticky');
   } else {
     header.classList.add('sticky');
