@@ -30,11 +30,13 @@
     }
   }
   .container {
-
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:50px;
   }
   &__item {
     display: flex;
-    margin-bottom: 40px;
+    height: 250px;
     &:hover {
       svg path {
         fill: var(--main-color);
@@ -99,10 +101,13 @@
           position: absolute;
           left: 0;
           right: 0;
-          width: 200px;
-          height: 200px;
-          bottom: 20px;
+          width: 150px;
+          height: 150px;
+          bottom: 50px;
           margin: 0 auto;
+        }
+        .item__photo {
+          height: 100%;
         }
       }
     }

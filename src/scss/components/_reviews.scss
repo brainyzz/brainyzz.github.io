@@ -36,7 +36,44 @@
 
 }
 .reviews {
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
   &__slider {
+  width: 100%;
+    overflow: hidden;
+  }
+  &__advantage {
+    flex: 0 0 35%;
+    .advantage__list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 100%;
+      .list__item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: #000;
+        text-align: center;
+        .item__num {
+          font-size: 58px;
+          color: var(--main-color);
+          font-family: SF-UI-bold;
+          flex: 0 0 50px;
+        }
+        .item__text {
+          flex: 0 0 40px;
+          padding: 0 20px;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+  &__wrapper {
+    flex: 0 0 60%;
+    width: 60%;
   }
   &__item {
     border-radius: 3px;
@@ -55,15 +92,28 @@
         filter: grayscale(0);
       }
     }
+    &.swiper-slide-next .item__wrapper {
+      .item__img {
+        max-width: 100%;
+        margin: 0;
+        @include mobile {
+          max-width: 80%;
+          margin-top: 10%;
+          margin-bottom: 10%;
+
+        }
+      }
+    }
     .item__wrapper {
-      position: absolute;
-      left: 0;
-      padding: 0 20px 10px 20px;
-      bottom: -50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
       color: #fff;
       transition: .4s;
-      @include mobile {
-        bottom: 10px;
+      .item__img {
+        max-width: 80%;
+        margin-top: 10%;
       }
     }
     .item__icon {
@@ -71,6 +121,13 @@
     }
     .item__title {
       font-size: 24px;
+      position: absolute;
+      color: #000;
+      left: 0;
+      right: 0;
+      top: 50px;
+      width: fit-content;
+      margin: 0 auto;
     }
     .item__text {
 
@@ -78,6 +135,23 @@
     .item__btn {
       display: block;
       margin-top: 20px;
+    }
+  }
+
+  .slider__item a {
+
+  }
+  .slider__item.swiper-slide-prev a {
+    @include mobile {
+      max-width: 80%;
+      margin-top: 10%;
+      margin-bottom: 10%;
+    }
+  }
+  .slider__item.swiper-slide-active a {
+    @include mobile {
+      max-width: 100%;
+      margin: 0;
     }
   }
 }

@@ -204,7 +204,7 @@ const swiperReviews = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.revie
   breakpoints: {
     // // when window width is >= 320px
     1023: {
-      slidesPerView: 5.8,
+      slidesPerView: 3,
       spaceBetween: 20,
       centeredSlides: false
     }
