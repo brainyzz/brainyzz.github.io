@@ -211,9 +211,11 @@ const swiperReviews = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.revie
   }
 });
 
-let selector = document.querySelector('.input-tel');
+let form = document.querySelector('.input-tel');
+let pop = document.querySelector('.popup .input-tel');
 let im = new (inputmask__WEBPACK_IMPORTED_MODULE_4___default())("+7(999)-999-99-99");
-im.mask(selector);
+im.mask(form);
+im.mask(pop);
 let popupBg = document.querySelector('.popup__bg');
 let popup = document.querySelector('.popup');
 let openPopupButtons = document.querySelectorAll('.open-popup');

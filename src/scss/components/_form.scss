@@ -57,10 +57,18 @@
         padding-left: 10px;
         background-color: transparent;
         border: 1px solid var(--second-color);
+        &:focus, &:focus-visible {
+          border: 1px solid var(--main-color);
+          outline:none;
+        }
       }
       .form__text {
         height: 120px;
         padding: 5px 10px;
+        &:focus, &:focus-visible {
+          border: 1px solid var(--main-color);
+          outline:none;
+        }
       }
 
     }

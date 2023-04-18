@@ -2577,9 +2577,17 @@ div.pswp__img--placeholder,
   background-color: transparent;
   border: 1px solid var(--second-color);
 }
+.form__wrapper label .form__input:focus, .form__wrapper label .form__input:focus-visible {
+  border: 1px solid var(--main-color);
+  outline: none;
+}
 .form__wrapper label .form__text {
   height: 120px;
   padding: 5px 10px;
+}
+.form__wrapper label .form__text:focus, .form__wrapper label .form__text:focus-visible {
+  border: 1px solid var(--main-color);
+  outline: none;
 }
 .form__wrapper .form__submit {
   width: -webkit-fit-content;
@@ -2829,6 +2837,9 @@ div.pswp__img--placeholder,
   border: 1px solid transparent;
   width: 100%;
   margin: 5px auto 20px auto;
+}
+.popup .form__input:focus, .popup .form__input:focus-visible {
+  outline: none;
 }
 .popup .btn {
   display: block;

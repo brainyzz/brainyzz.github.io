@@ -186,10 +186,11 @@ const swiperReviews = new Swiper('.reviews__slider', {
   }
 });
 import Inputmask from "inputmask";
-let selector = document.querySelector('.input-tel')
-
+let form = document.querySelector('.input-tel')
+let pop = document.querySelector('.popup .input-tel')
 let im = new Inputmask("+7(999)-999-99-99");
-im.mask(selector);
+im.mask(form);
+im.mask(pop);
 
 let popupBg = document.querySelector('.popup__bg');
 let popup = document.querySelector('.popup');
