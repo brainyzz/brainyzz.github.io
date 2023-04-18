@@ -29,6 +29,9 @@
             margin-top: 10%;
             margin-bottom: 10%;
             filter: grayscale(1);
+            @include small-tablet {
+              filter: grayscale(0);
+            }
             &:hover {
               filter: grayscale(0);
             }
