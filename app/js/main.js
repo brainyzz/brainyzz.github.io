@@ -189,7 +189,7 @@ const swiperClients = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.clien
 });
 
 const swiperReviews = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.reviews__slider', {
-  slidesPerView: 1.4,
+  slidesPerView: 1.8,
   spaceBetween: 50,
   centeredSlides: true,
   loop: true,
@@ -203,7 +203,7 @@ const swiperReviews = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.revie
   },
   breakpoints: {
     // // when window width is >= 320px
-    1023: {
+    767: {
       slidesPerView: 3,
       spaceBetween: 20,
       centeredSlides: false

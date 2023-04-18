@@ -39,6 +39,9 @@
   .container {
     display: flex;
     justify-content: space-between;
+    @include small-tablet {
+      flex-wrap: wrap;
+    }
   }
   &__slider {
   width: 100%;
@@ -46,10 +49,21 @@
   }
   &__advantage {
     flex: 0 0 35%;
+    @include small-tablet {
+      flex: 0 0 100%;
+    }
     .advantage__list {
       display: grid;
       grid-template-columns: 1fr 1fr;
       height: 100%;
+      @include small-tablet {
+        display: flex;
+      }
+      @include mobile {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
       .list__item {
         display: flex;
         align-items: center;
@@ -62,11 +76,19 @@
           color: var(--main-color);
           font-family: SF-UI-bold;
           flex: 0 0 50px;
+          @include small-tablet {
+            font-size: 40px;
+          }
         }
         .item__text {
           flex: 0 0 40px;
           padding: 0 20px;
           font-size: 20px;
+          @include mobile {
+            font-size: 16px;
+            padding: 0;
+            flex: 0 0 70px;
+          }
         }
       }
     }
@@ -74,6 +96,10 @@
   &__wrapper {
     flex: 0 0 60%;
     width: 60%;
+    @include small-tablet {
+      flex: 0 0 100%;
+      margin-bottom: 70px;
+    }
   }
   &__item {
     border-radius: 3px;
@@ -101,6 +127,14 @@
           margin-top: 10%;
           margin-bottom: 10%;
 
+        }
+      }
+    }
+    &.swiper-slide-active .item__wrapper {
+      .item__img {
+        @include mobile {
+          max-width: 100%;
+          margin-top: 0;
         }
       }
     }

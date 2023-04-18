@@ -1,7 +1,4 @@
 .services {
-  @include small-tablet {
-    display: none;
-  }
   position: relative;
   &:before, &:after {
     content: '';
@@ -33,10 +30,20 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap:50px;
+    @include mc-tablet {
+      grid-template-columns: 100%;
+    }
   }
   &__item {
     display: flex;
-    height: 250px;
+    height: 290px;
+    @include tablet {
+      flex-direction: column;
+      position: relative;
+    }
+    @include mc-tablet {
+      height: 250px;
+    }
     &:hover {
       svg path {
         fill: var(--main-color);
@@ -48,26 +55,30 @@
         flex: 0 0 100%;
         margin: 5px 0 0 0;
         @include small-tablet {
-          flex: 0 0 40px;
+          padding-right: 100px;
         }
       }
       &__link {
         position: absolute;
         bottom: 20px;
+        @include tablet {
+          top: 65px;
+          right: 0;
+        }
+        @include mobile {
+          bottom: 0;
+          top: 90%;
+          left: 0;
+          right: 0;
+          width: fit-content;
+        }
       }
       &__list {
         display: flex;
         flex-wrap: wrap;
         flex: 0 0 80%;
-        font-size: 18px;
-        @include tablet {
-          margin: 0 auto;
-          width: 400px;
-          font-size: 16px;
-          flex-wrap: wrap;
-        }
-        @include small-tablet {
-          width: 80%;
+        font-size: 16px;
+        @include desktop {
           font-size: 14px;
         }
         .list__item {
@@ -75,6 +86,11 @@
           &:not(:last-child) {
             margin-right: 20px;
             border-radius: 2px;
+          }
+          @include mobile {
+            display: none;
+          }
+          .item__more {
           }
           //&:before {
           //  content: '';
@@ -97,6 +113,14 @@
         align-items: center;
         flex: 0 0 20%;
         margin-right: 40px;
+        @include tablet {
+          height: 60px;
+          width: 100%;
+          position: initial;
+        }
+        @include mobile {
+          height: 150px;
+        }
         .item__icon {
           position: absolute;
           left: 0;
@@ -105,9 +129,15 @@
           height: 150px;
           bottom: 50px;
           margin: 0 auto;
+          @include tablet {
+            display: none;
+          }
         }
         .item__photo {
           height: 100%;
+          @include tablet {
+            width: 100%;
+          }
         }
       }
     }

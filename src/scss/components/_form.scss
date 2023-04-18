@@ -15,6 +15,9 @@
 .form {
   padding-bottom: 120px;
   position: relative;
+  @include small-tablet {
+    padding-bottom: 0px;
+  }
   &:before {
     content: '';
     background-image: url(/img/sign.svg);
