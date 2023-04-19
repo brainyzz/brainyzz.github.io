@@ -85,6 +85,9 @@
       line-height: 120%;
       position: relative;
       font-style: normal;
+      @include small-tablet {
+        font-size: 16px;
+      }
       @include mc-tablet {
         flex: 0 0 23%;
         font-size: 14px;
@@ -140,12 +143,17 @@
     }
   }
   &__service {
-    flex: 0 0 30%;
-    margin-top: 40px;
+    flex: 0 0 50%;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    @include small-tablet {
+      grid-template-columns: 1fr;
+      flex: 0 0 30%
+    }
     @include mc-tablet {
       flex: 0 0 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+
     }
     @include mobile {
       display: none;
@@ -156,6 +164,7 @@
         position: relative;
         color: #fff;
         padding-left: 20px;
+        display: block;
         &:before {
           content: '';
           width: 9px;

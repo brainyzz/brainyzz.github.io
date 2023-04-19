@@ -11,7 +11,7 @@
     left: -120px;
     right: 0;
     top: 0;
-    opacity: .1;
+    opacity: .3;
     z-index: -1;
   }
   &:after {
@@ -23,7 +23,7 @@
   &__title {
     text-align: center;
     @include small-tablet() {
-      margin: 0 0 10px 0;
+      margin: 0 0 35px 0;
     }
   }
   .container {
@@ -44,9 +44,15 @@
     @include mc-tablet {
       height: 250px;
     }
+    svg path {
+      fill: var(--main-color);
+    }
     &:hover {
-      svg path {
-        fill: var(--main-color);
+      .item__img .item__photo {
+        filter: grayscale(0);
+      }
+      svg {
+        display: none;
       }
     }
 
@@ -56,6 +62,9 @@
         margin: 5px 0 0 0;
         @include small-tablet {
           padding-right: 100px;
+        }
+        @include mobile {
+          padding-right: 0;
         }
       }
       &__link {
@@ -129,14 +138,18 @@
           height: 150px;
           bottom: 50px;
           margin: 0 auto;
+          transition: .4s;
           @include tablet {
             display: none;
           }
         }
         .item__photo {
           height: 100%;
+          filter: grayscale(.9);
+          transition: .4s;
           @include tablet {
             width: 100%;
+            filter: grayscale(0);
           }
         }
       }

@@ -259,4 +259,16 @@ window.addEventListener('scroll', function() {
   prevScrollPos = currentScrollPos;
 });
 
+window.addEventListener('load', function() {
+  const currentScrollPos = window.pageYOffset;
+  if (prevScrollPos < 40) {
+    header.classList.remove('sticky');
+  } else {
+    header.classList.add('sticky');
+  }
+  setTimeout(function() {
+    document.querySelector('.preloader').style.display = 'none';
+  }, 1000);
+});
+
 // validateForms('.form-1', rules1, afterForm);
