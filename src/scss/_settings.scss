@@ -155,23 +155,29 @@ a {
   width: 500px;
   height: auto;
   margin: 100px auto;
-  margin-top: calc(100vh / 2 - 50px);
+  margin-top: calc(100vh / 2 - 100px);
+  @include mobile {
+    width: 300px;
+  }
   .pre__farro {
     width: 500px;
-    animation: pulse 1.5s infinite;
+    animation: pulse 2s infinite;
   }
 }
 
 
 @keyframes pulse {
   0% {
-   transform: scale(1.05);
+   transform: scale(1);
+    opacity: .6;
   }
-  70% {
+  50% {
     transform: scale(1.2);
+    opacity: 1;
   }
   100% {
-    transform: scale(1.05);
+    opacity: .6;
+    transform: scale(1);
   }
 }
 

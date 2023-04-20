@@ -46,13 +46,17 @@
     }
     svg path {
       fill: var(--main-color);
+      transition: .4s;
+      @include mobile {
+        fill: var(--second-color);
+      }
     }
     &:hover {
       .item__img .item__photo {
         filter: grayscale(0);
       }
-      svg {
-        display: none;
+      svg, path {
+        fill: var(--second-color);
       }
     }
 
@@ -141,6 +145,10 @@
           transition: .4s;
           @include tablet {
             display: none;
+          }
+          @include mobile {
+            display: block;
+            bottom: 100px;
           }
         }
         .item__photo {

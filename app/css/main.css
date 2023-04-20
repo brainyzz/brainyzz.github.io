@@ -204,41 +204,52 @@ a {
   width: 500px;
   height: auto;
   margin: 100px auto;
-  margin-top: calc(50vh - 50px);
+  margin-top: calc(50vh - 100px);
+}
+@media (max-width: 767px) {
+  .container-pre {
+    width: 300px;
+  }
 }
 .container-pre .pre__farro {
   width: 500px;
-  -webkit-animation: pulse 1.5s infinite;
-  animation: pulse 1.5s infinite;
+  -webkit-animation: pulse 2s infinite;
+  animation: pulse 2s infinite;
 }
 
 @-webkit-keyframes pulse {
   0% {
-    -webkit-transform: scale(1.05);
-    transform: scale(1.05);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0.6;
   }
-  70% {
+  50% {
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
+    opacity: 1;
   }
   100% {
-    -webkit-transform: scale(1.05);
-    transform: scale(1.05);
+    opacity: 0.6;
+    -webkit-transform: scale(1);
+    transform: scale(1);
   }
 }
 
 @keyframes pulse {
   0% {
-    -webkit-transform: scale(1.05);
-    transform: scale(1.05);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0.6;
   }
-  70% {
+  50% {
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
+    opacity: 1;
   }
   100% {
-    -webkit-transform: scale(1.05);
-    transform: scale(1.05);
+    opacity: 0.6;
+    -webkit-transform: scale(1);
+    transform: scale(1);
   }
 }
 .flex {
@@ -2477,13 +2488,21 @@ div.pswp__img--placeholder,
 }
 .services__item svg path {
   fill: var(--main-color);
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+}
+@media (max-width: 767px) {
+  .services__item svg path {
+    fill: var(--second-color);
+  }
 }
 .services__item:hover .item__img .item__photo {
   -webkit-filter: grayscale(0);
   filter: grayscale(0);
 }
-.services__item:hover svg {
-  display: none;
+.services__item:hover svg, .services__item:hover path {
+  fill: var(--second-color);
 }
 .services__item .item__title {
   -webkit-box-flex: 0;
@@ -2593,6 +2612,12 @@ div.pswp__img--placeholder,
 @media (max-width: 1440px) {
   .services__item .item__img .item__icon {
     display: none;
+  }
+}
+@media (max-width: 767px) {
+  .services__item .item__img .item__icon {
+    display: block;
+    bottom: 100px;
   }
 }
 .services__item .item__img .item__photo {
