@@ -1,0 +1,74 @@
+<!doctype html>
+<html <?php language_attributes(); ?>>
+<head>
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+
+	<?php wp_head(); ?>
+</head>
+
+<body <?php body_class(); ?> class="page__body">
+<div class="preloader">
+  <div class="spinner">
+    <div class="container-pre">
+      <img src="<?=get_template_directory_uri()?>/farro/app/img/white-logo.svg" alt="" class="pre__farro">
+    </div>
+  </div>
+</div>
+  <div class="site-container">
+    <header class="header
+    <?php
+    if( !is_home() ){
+        echo 'inner';
+    }
+    ?>
+">
+	<div class="container flex-j-sb">
+    <a href="/" class="header__logo">
+      <img src="<?=get_template_directory_uri()?>/farro/app/img/logo.svg" alt="" class="logo__img">
+    </a>
+    <menu class="header__menu list-reset" data-menu>
+		
+	<?php
+	wp_nav_menu( array(
+		'theme_location' => 'menu-1',
+		'menu_id'        => 'primary-menu',
+		'container' => false,
+		'items_wrap' => '%3$s',
+		'nav_menu_css_class' => 'menu__item',
+		'link_class' => 'item__link',
+	) );
+			?>
+    </menu>
+    <div class="header__contact">
+      <button class="contact__btn btn open-popup">Связаться с нами</button>
+      <a href="tel:+7495877-50-70" class="contact__tel">
+        +7 495 877-50-70
+      </a>
+      <div class="contact__social">
+        <a href="" class="social__tg">
+          <svg width="35px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="m8 16c4.418278 0 8-3.581722 8-8s-3.581722-8-8-8-8 3.581722-8 8 3.581722 8 8 8zm-1.33048041-6.37283475 3.70945371-3.34749858c.1628067-.14449267-.0355533-.21495334-.25168-.08389334l-4.57819997 2.88833334-1.97753333-.61722c-.42706-.13076-.43012667-.42422.09588-.6352l7.706-2.9714c.3519533-.15978667.6916533.08453333.5572933.62321333l-1.3123333 6.1842c-.09164.43946-.3571667.54456-.72506667.3415667l-1.99909645-1.4769586-.96090355.9343586c-.11163333.1085333-.2.2-.4.2l.13613334-2.03953337z" fill="#fff"/></svg>
+        </a>
+        <a href="" class="social__wa">
+          <svg fill="none" height="35" viewBox="0 0 32 32" width="35" xmlns="http://www.w3.org/2000/svg"><g clip-rule="evenodd" fill="#fff" fill-rule="evenodd"><path d="m12.6 21.7c1 .6 2.2.9 3.4.9 3.7 0 6.6-3 6.6-6.5 0-1.8-.6-3.4-1.9-4.7-1.3-1.2-2.9-1.9-4.7-1.9-3.6 0-6.60001 3-6.60001 6.6 0 1.2.30001 2.4 1.00001 3.5l.2.3-.70001 2.4 2.50001-.7zm5.6-4.7c.2 0 1.2.5 1.4.6.0311.0156.0623.0287.0931.0417.1668.0704.3225.1362.4069.5583.1 0 .1.4-.1.9-.1.4-.9.9-1.3.9-.0678 0-.1327.0057-.202.0119-.3398.03-.786.0695-2.198-.5119-1.7525-.701-2.9675-2.4001-3.3087-2.8772-.0482-.0674-.0789-.1104-.0913-.1228-.017-.034-.0515-.0884-.0969-.1601-.2212-.3493-.7031-1.1102-.7031-1.9399 0-1 .5-1.5.7-1.7s.4-.2.5-.2h.4c.1 0 .3 0 .4.3.2.4.6 1.4.6 1.5 0 .0333.0111.0667.0222.1.0223.0667.0445.1333-.0222.2-.05.05-.075.1-.1.15s-.05.1-.1.15l-.3.3c-.1.1-.2.2-.1.4s.5.9 1.1 1.4c.6751.5907 1.2078.8254 1.4778.9443.05.022.091.0401.1222.0557.2 0 .3 0 .4-.1.05-.1.175-.25.3-.4s.25-.3.3-.4c.1-.2.2-.2.4-.1z"/><path d="m0 16c0-8.83656 7.16344-16 16-16 8.8366 0 16 7.16344 16 16 0 8.8366-7.1634 16-16 16-8.83656 0-16-7.1634-16-16zm16-8c2.1 0 4.1.8 5.6 2.3s2.4 3.5 2.4 5.6c0 4.4-3.6 8-8 8-1.3 0-2.6-.4-3.8-1l-4.2 1.1 1.10001-4c-.7-1.2-1.10001-2.6-1.10001-4 0-4.4 3.6-8 8-8z"/></g></svg>
+        </a>
+      </div>
+    </div>
+    <button class="header__burger burger" aria-label="Отркыть бургер" data-burger>
+      <span class="burger__line"></span>
+    </button>
+  </div>
+</header>
+      <?php if( !is_home() ) { ?>
+      <section class="breadcrumbs">
+          <div class="container">
+              <?php
+
+              if ( function_exists( 'yoast_breadcrumb' ) ) :
+              yoast_breadcrumb( '<div class="breadcrumbs__wrapper">', '</div>' );
+              endif;
+              ?>
+          </div>
+      </section>
+<?php } ?>
